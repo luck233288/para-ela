@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>💜 Nosso Amor 💜</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #c8a2c8, #b57edc, #9370db);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 34px;
+  text-shadow: 0 0 12px #fff;
+}
+
+.card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 25px;
+  max-width: 750px;
+  margin: 20px auto;
+  box-shadow: 0 0 30px rgba(255,255,255,0.5);
+}
+
+.pergunta {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opcoes button {
+  background: linear-gradient(45deg, #a855f7, #d8b4fe);
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #e9d5ff;
+}
+
+#feedback {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+#final {
+  display: none;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.galeria img {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.7);
+}
+
+button.musica {
+  margin-top: 25px;
+  background: linear-gradient(45deg, #ede9fe, #c4b5fd);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 35px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ddd6fe;
+  color: #4c1d95;
+}
+
+.coracao {
+  position: fixed;
+  bottom: -30px;
+  font-size: 28px;
+  animation: subir 6s linear infinite;
+}
+
+@keyframes subir {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); opacity: 0; }
+}#fala {
+  font-size: 30px;
+  text-shadow: 0 0 18px #fff;
+  animation: aparecer 1.4s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+<div id="inicio" class="card">
+  <h1>💜 Bem-vinda, meu amor 💜</h1>
+  <p>Clique para começar 💖</p>
+  <button class="musica" onclick="iniciar()">
+    💕 Começar 💕
+  </button>
+</div>
+
+<!-- Música de entrada -->
+<audio id="entrada" loop>
+  <source src="entrada.mp3" type="audio/mpeg">
+</audio>
+
+<div id="jogo" class="card" style="display:none">
+  <h1>💜 Quiz do Nosso Amor 💜</h1>
+  <div class="pergunta" id="pergunta"></div>
+  <div class="opcoes" id="opcoes"></div>
+  <div id="feedback"></div>
+</div>
+
+<div id="suspense" class="card" style="display:none">
+  <h1 id="fala"></h1>
+</div>
+
+<div id="final" class="card">
+  <h1>👑 Minha Princesa 👑</h1>
+
+  <p>
+    Eu queria usar esse espaço pra abrir meu coração com você.<br><br>
+
+    Desde que você entrou na minha vida, tudo mudou. Mudou a forma como eu vejo os dias,
+    como eu encaro os problemas e até como eu me enxergo.
+    Você virou uma parte essencial de mim, mesmo quando eu não soube demonstrar isso do jeito certo.<br><br>
+
+    Eu sei que no começo do nosso relacionamento eu fui meio criança.
+    Agi de formas que hoje eu vejo que foram erradas, imaturas e até idiotas.
+    Não porque eu não me importava, mas porque eu ainda não sabia lidar direito com meus sentimentos.
+    Isso não justifica nada, e eu reconheço meus erros de verdade.<br><br>
+
+    O que eu quero que você saiba é que eu quero mudar.
+    Quero mudar por você e por nós.
+    O que a gente tem é raro, é verdadeiro e vale muito mais do que qualquer atitude boba do passado.
+    Eu tô aprendendo, crescendo e tentando ser melhor todos os dias, porque você merece isso.<br><br>
+
+    Eu te amo de um jeito que é difícil explicar.
+    Te amo pelo que você é, pelo seu jeito, pelo cuidado, pela paciência
+    e principalmente pelo seu sorriso, que é o mais bonito que eu já vi.
+    Seu sorriso muda meu dia inteiro e me lembra do porquê eu me apaixonei por você.<br><br>
+
+    Eu amo cada momento simples ao seu lado.
+    Amo ficar jogando com você, rindo das coisas bobas, ganhando ou perdendo juntos.
+    Amo assistir coisas com você, mesmo quando a gente nem presta tanta atenção,
+    porque só estar com você já faz tudo valer a pena.<br><br>
+
+    Você me faz feliz todos os dias. De verdade.
+    E mesmo quando eu erro, meu amor por você nunca muda.<br><br>
+
+    Se hoje eu tô aqui escrevendo isso, é porque eu quero que você tenha certeza de uma coisa:
+    eu te amo, eu me importo, eu reconheço meus erros e eu quero fazer diferente.
+    Você é meu amor, minha escolha, minha princesa ❤️👑
+  </p>
+
+  <div class="galeria">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+  </div>
+
+<div id="pedido">
+  <h2>💍 Quer continuar escrevendo essa história comigo?</h2>
+
+  <button class="musica" onclick="responderSim()">Sim 💜</button>
+  <button class="musica" onclick="responderSim()">Claro 😭</button>
+</div>
+
+  <audio id="musica">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="musica" onclick="tocarMusicaFinal()">
+    🎶 Tocar nossa música 💖
+  </button>
+</div>
+
+<script>
+const perguntas = [
+  { p: "📅 Que dia nos conhecemos?", c: "4/7/2025", o: ["4/7/2025","10/6/2024","1/1/2025","12/8/2023"] },
+  { p: "👶 Qual o nome do nosso filho?", c: "Davi", o: ["Davi","Lucas","Miguel","Pedro"] },
+  { p: "🍕 Qual a minha comida favorita?", c: "Pizza", o: ["Pizza","Hambúrguer","Sushi","Lasanha"] },
+  { p: "💜 Quem ama mais?", c: "Eu", o: ["Eu","Você","Os dois","Ninguém"] },
+  { p: "💬 Quem falou 'te amo' primeiro?", c: "Eu", o: ["Eu","Você","Foi junto","Ninguém"] }
+];
+
+let atual = 0;
+const perguntaEl = document.getElementById("pergunta");
+const opcoesEl = document.getElementById("opcoes");
+const feedbackEl = document.getElementById("feedback");
+const entrada = document.getElementById("entrada");
+
+entrada.volume = 0.08;
+
+function carregar() {
+  perguntaEl.innerText = perguntas[atual].p;
+  opcoesEl.innerHTML = "";
+  feedbackEl.innerText = "";
+
+  perguntas[atual].o.forEach(op => {
+    const b = document.createElement("button");
+    b.innerText = op;
+    b.onclick = () => verificar(op);
+    opcoesEl.appendChild(b);
+  });
+}
+
+function verificar(resp) {
+  if (resp === perguntas[atual].c) {
+    feedbackEl.innerText = "💜 Acertou, amor!";
+    atual++;
+    setTimeout(() => {
+      if (atual < perguntas.length) {
+        carregar();
+      } else {
+document.getElementById("jogo").style.display = "none";
+mostrarSuspense();
+      }
+    }, 800);
+  } else {
+    feedbackEl.innerText = "😅 Tenta de novo 💜";
+  }
+}
+
+carregar();
+
+// Corações
+function coracao() {
+  const c = document.createElement("div");
+  c.className = "coracao";
+  c.innerText = ["💜","💖","💕","💘","❤️"][Math.floor(Math.random()*5)];
+  c.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(c);
+  setTimeout(() => c.remove(), 6000);
+}
+setInterval(coracao, 400);
+function iniciar() {
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("jogo").style.display = "block";
+  entrada.play();
+}function tocarMusicaFinal() {
+  entrada.pause();
+  entrada.currentTime = 0; // opcional
+  const musicaFinal = document.getElementById("musica");
+  musicaFinal.play();
+}const falas = [
+  "💭 Você está preparada?",
+  "💜 Porque o que vem agora é especial...",
+  "✨ É tudo que eu sinto por você...",
+  "👑 Agora sim..."
+];
+
+let indiceFala = 0;
+
+function mostrarSuspense() {
+  const suspense = document.getElementById("suspense");
+  const fala = document.getElementById("fala");
+
+  suspense.style.display = "block";
+  fala.innerText = falas[indiceFala];
+
+  const intervalo = setInterval(() => {
+    indiceFala++;
+
+    if (indiceFala < falas.length) {
+      fala.innerText = falas[indiceFala];
+    } else {
+      clearInterval(intervalo);
+      suspense.style.display = "none";
+      document.getElementById("final").style.display = "block";
+      document.getElementById("musica").volume = 0.3;
+    }
+  }, 2200);
+}function responderSim() {
+  document.getElementById("pedido").innerHTML = `
+    <h2>💜 Então é pra sempre.</h2>
+    <p>
+      Obrigado por escolher ficar.<br>
+      Eu prometo cuidar do nosso amor todos os dias.
+    </p>
+  `;
+}
+</script>
+
+</body>
+</html>
